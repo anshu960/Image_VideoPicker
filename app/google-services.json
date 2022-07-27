@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "103678015219",
+    "project_id": "image-videopicker",
+    "storage_bucket": "image-videopicker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103678015219:android:4de5f0cfbd430f8539e986",
+        "android_client_info": {
+          "package_name": "com.example.image_videopicker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103678015219-43duhpvkujok7biglshihr2rngqm8v5v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLD1nS0QzmsL6ogScyicMkbNSH816IHPE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "103678015219-43duhpvkujok7biglshihr2rngqm8v5v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
