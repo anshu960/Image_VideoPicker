@@ -1,6 +1,7 @@
 package com.example.image_videopicker
 
 import android.content.Intent
+import android.media.Image
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     val Video : Int = 0
+    val Image : Int = 0
     lateinit var uri : Uri
     lateinit var mStorage : StorageReference
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,10 +27,22 @@ class MainActivity : AppCompatActivity() {
         video_btn.setOnClickListener(View.OnClickListener {
              view: View? ->  val intent = Intent()
             intent.setType("video/*")
+           // intent.setType("image/*")
             intent.setAction(Intent.ACTION_GET_CONTENT)
             startActivityForResult(Intent.createChooser(intent, "Select Video"), Video)
         })
+        mStorage = FirebaseStorage.getInstance().getReference("Uploads")
+        img_btn.setOnClickListener(View.OnClickListener {
+                view: View? ->  val intent = Intent()
+           // intent.setType("video/*")
+             intent.setType("image/*")
+            intent.setAction(Intent.ACTION_GET_CONTENT)
+            startActivityForResult(Intent.createChooser(intent, "Select Video"), Image)
+        })
+
+
     }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         val uriTxt = findViewById<View>(R.id.uriTxt) as TextView
@@ -38,6 +52,11 @@ class MainActivity : AppCompatActivity() {
                 uriTxt.text = uri.toString()
                 upload()
             }
+        }else if (requestCode == Image){
+
+            uri = data!!.data!!
+            uriTxt.text = uri.toString()
+            upload()
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
